@@ -19,13 +19,19 @@
           <td>Content1</td>
           <td>Ichiro</td>
           <td>
-            <button class="btn btn-primary">Show</button>
+            <router-link :to="{ name: 'task.show', params: { taskId: 1 } }">
+              <button class="btn btn-primary">Show</button>
+            </router-link>
           </td>
           <td>
-            <button class="btn btn-success">Edit</button>
+            <router-link :to="{ name: 'task.show', params: { taskId: 2 } }">
+              <button class="btn btn-success">Edit</button>
+            </router-link>
           </td>
           <td>
-            <button class="btn btn-danger">Delete</button>
+            <router-link :to="{ name: 'task.show', params: { taskId: 3 } }">
+              <button class="btn btn-danger">Delete</button>
+            </router-link>
           </td>
         </tr>
         <tr>
