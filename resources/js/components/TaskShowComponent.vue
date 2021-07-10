@@ -5,19 +5,45 @@
         <form action="">
           <div class="form-group row border-bottom">
             <label for="id" class="col-sm-3 col-form-label">ID</label>
-            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="id" :value="taskId">
+            <input
+              type="text"
+              class="col-sm-9 form-control-plaintext"
+              readonly
+              id="id"
+              :value="taskId"
+            />
           </div>
           <div class="form-group row border-bottom">
             <label for="id" class="col-sm-3 col-form-label">Title</label>
-            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="title" value="title title">
+            <input
+              type="text"
+              class="col-sm-9 form-control-plaintext"
+              readonly
+              id="title"
+              value="title title"
+            />
           </div>
           <div class="form-group row border-bottom">
             <label for="id" class="col-sm-3 col-form-label">Content</label>
-            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="content" value="content content">
+            <input
+              type="text"
+              class="col-sm-9 form-control-plaintext"
+              readonly
+              id="content"
+              value="content content"
+            />
           </div>
           <div class="form-group row border-bottom">
-            <label for="id" class="col-sm-3 col-form-label">Person In Charge</label>
-            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="person-in-charge" value="Ichiro">
+            <label for="id" class="col-sm-3 col-form-label"
+              >Person In Charge</label
+            >
+            <input
+              type="text"
+              class="col-sm-9 form-control-plaintext"
+              readonly
+              id="person-in-charge"
+              value="Ichiro"
+            />
           </div>
         </form>
       </div>
@@ -26,9 +52,9 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      taskId: String
-    }
-  }
+export default {
+  props: {
+    taskId: String | Number,
+  },
+};
 </script>
