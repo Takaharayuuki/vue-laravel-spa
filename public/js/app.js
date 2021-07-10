@@ -2040,7 +2040,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/tasks").then(function (res) {
-        Object.assign(_this.tasks, res.data);
+        //   Object.assign(this.tasks, res.data);
+        _this.tasks = res.data;
       })["catch"](function (err) {
         alert(err);
       });
@@ -38241,7 +38242,7 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.tasks, function(task) {
-          return _c("tr", { key: task.id }, [
+          return _c("tr", { key: task.test }, [
             _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(task.id))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(task.title))]),

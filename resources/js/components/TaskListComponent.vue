@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="task in tasks" :key="task.id">
+        <tr v-for="task in tasks" :key="task.test">
           <th scope="row">{{ task.id }}</th>
 
           <td>{{ task.title }}</td>
@@ -57,7 +57,8 @@ export default {
       axios
         .get("/api/tasks")
         .then((res) => {
-          Object.assign(this.tasks, res.data);
+          //   Object.assign(this.tasks, res.data);
+          this.tasks = res.data;
         })
         .catch((err) => {
           alert(err);
