@@ -38,7 +38,7 @@
             </router-link>
           </td>
 
-          <td>+ <button class="btn btn-danger">Delete</button></td>
+          <td><button class="btn btn-danger">Delete</button></td>
         </tr>
       </tbody>
     </table>
