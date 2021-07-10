@@ -26,4 +26,10 @@ class TaskController extends Controller
 
         return $task;
     }
+    public function dalete(Task $task)
+    {
+        $task->delete();
+
+        return $task;
+    }
 }

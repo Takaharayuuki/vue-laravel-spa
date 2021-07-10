@@ -25,3 +25,5 @@ Route::get('tasks/{task}', 'App\Http\TaskController@show');
 Route::post('/tasks', 'App\Http\TaskController@store');
 /* タスク更新API */
 Route::put('/tasks/{task}', 'App\Http\TaskController@update');
+/* タスク削除API */
+Route::delete('/tasks/{task}', 'App\Http\TaskController@destroy');
