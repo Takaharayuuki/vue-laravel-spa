@@ -20,10 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /* タスク一覧取得API */
 Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
 /* タスク詳細取得API */
-Route::get('tasks/{task}', 'App\Http\TaskController@show');
+Route::get('tasks/{task}', 'App\Http\Controllers\TaskController@show');
 /* タスク登録API */
-Route::post('/tasks', 'App\Http\TaskController@store');
+Route::post('/tasks', 'App\Http\Controllers\TaskController@store');
 /* タスク更新API */
-Route::put('/tasks/{task}', 'App\Http\TaskController@update');
+Route::put('/tasks/{task}', 'App\Http\Controllers\TaskController@update');
 /* タスク削除API */
-Route::delete('/tasks/{task}', 'App\Http\TaskController@destroy');
+Route::delete('/tasks/{task}', 'App\Http\Controllers\TaskController@destroy');
