@@ -38,7 +38,11 @@
             </router-link>
           </td>
 
-          <td><button class="btn btn-danger">Delete</button></td>
+          <td>
+            <button @click="deleteTask(task.id)" class="btn btn-danger">
+              Delete
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -63,6 +67,12 @@ export default {
         .catch((err) => {
           alert(err);
         });
+    },
+    deleteTask(id) {
+      axios.delete("/api/tasks/" + id).then((res) => {
+        //TODO: 完了アラートを出したい
+        this.getTasks();
+      });
     },
   },
   mounted() {
