@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+/* タスク一覧取得API */
 Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
-
+/* タスク詳細取得API */
 Route::get('tasks/{task}', 'App\Http\TaskController@show');
+/* タスク登録API */
+Route::post('/tasks', 'App\Http\TaskController@store');
