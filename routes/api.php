@@ -23,3 +23,5 @@ Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
 Route::get('tasks/{task}', 'App\Http\TaskController@show');
 /* タスク登録API */
 Route::post('/tasks', 'App\Http\TaskController@store');
+/* タスク更新API */
+Route::put('/tasks/{task}', 'App\Http\TaskController@update');
