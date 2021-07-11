@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <div v-if="user">
+      <p>名前: {{ user.name }}</p>
+      <p>メールアドレス: {{ user.email }}</p>
+      <button type="button" @click="logout">ログアウト</button>
+    </div>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
@@ -53,6 +58,7 @@
 export default {
   data: () => {
     return {
+      user: "",
       tasks: [],
     };
   },
@@ -74,8 +80,23 @@ export default {
         this.getTasks();
       });
     },
+    logout() {
+      axios
+        .post("api/logout")
+        .then((res) => {
+          console.log(res);
+          this.$router.push("/login");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
   mounted() {
+    axios.get("/api/user").then((res) => {
+      console.log(res);
+      this.user = res.data;
+    });
     this.getTasks();
   },
 };

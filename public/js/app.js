@@ -2164,9 +2164,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      user: "",
       tasks: []
     };
   },
@@ -2188,9 +2194,26 @@ __webpack_require__.r(__webpack_exports__);
         //TODO: 完了アラートを出したい
         _this2.getTasks();
       });
+    },
+    logout: function logout() {
+      var _this3 = this;
+
+      axios.post("api/logout").then(function (res) {
+        console.log(res);
+
+        _this3.$router.push("/login");
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   },
   mounted: function mounted() {
+    var _this4 = this;
+
+    axios.get("/api/user").then(function (res) {
+      console.log(res);
+      _this4.user = res.data;
+    });
     this.getTasks();
   }
 });
@@ -38691,6 +38714,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _vm.user
+      ? _c("div", [
+          _c("p", [_vm._v("名前: " + _vm._s(_vm.user.name))]),
+          _vm._v(" "),
+          _c("p", [_vm._v("メールアドレス: " + _vm._s(_vm.user.email))]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { attrs: { type: "button" }, on: { click: _vm.logout } },
+            [_vm._v("ログアウト")]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c("table", { staticClass: "table table-hover" }, [
       _vm._m(0),
       _vm._v(" "),
