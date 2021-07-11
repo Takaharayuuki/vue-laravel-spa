@@ -2273,7 +2273,7 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_6__.default);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__.default({
   mode: "history",
   routes: [{
-    path: "/",
+    path: "/login",
     name: "login",
     component: _components_Login_vue__WEBPACK_IMPORTED_MODULE_0__.default
   }, {
