@@ -1,4 +1,5 @@
 import VueRouter from "vue-router";
+import Login from "./components/Login.vue"
 import HeaderComponent from "./components/HeaderComponent";
 import TaskListComponent from "./components/TaskListComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
@@ -14,6 +15,11 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: "history",
     routes: [
+        {
+            path: "/",
+            name: "login",
+            component: Login
+        },
         {
             path: "/tasks",
             name: "task.list",
