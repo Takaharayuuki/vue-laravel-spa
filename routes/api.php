@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+/* ログイン API */
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
+/* ログアウト API */
+Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
+
 /* タスク一覧取得API */
 Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
 /* タスク詳細取得API */

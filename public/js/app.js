@@ -1884,7 +1884,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      email: "",
+      pass: "",
+      error: false,
+      getUserMessage: ""
+    };
+  },
+  methods: {
+    login: function login() {
+      var _this = this;
+
+      axios.get("sanctum/csrf-cookie").then(function (res) {
+        axios.post("/api/login", {
+          email: _this.email,
+          password: _this.pass
+        }).then(function (res) {
+          if (res.data.status_code == 200) {
+            _this.$router.push("/tasks");
+          }
+
+          _this.getUserMessage = "200じゃないログインに失敗しました";
+        })["catch"](function (err) {
+          console.log(err);
+          _this.getUserMessage = "ログインに失敗しました。";
+        });
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -38226,16 +38269,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h2", [_vm._v("ログイン")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "mt-2 text-danger" }, [
+      _vm._v(_vm._s(_vm.getUserMessage))
+    ]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.login.apply(null, arguments)
+          }
+        }
+      },
+      [
+        _c("label", [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
+              }
+            ],
+            attrs: { type: "email", placeholder: "email" },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.pass,
+                expression: "pass"
+              }
+            ],
+            attrs: { type: "pass", placeholder: "password" },
+            domProps: { value: _vm.pass },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.pass = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("button", { attrs: { type: "submit" } }, [_vm._v("ログイン")])
+      ]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("ログイン")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
