@@ -1,5 +1,5 @@
 import VueRouter from "vue-router";
-import Login from "./components/Login.vue"
+import Login from "./components/Login.vue";
 import HeaderComponent from "./components/HeaderComponent";
 import TaskListComponent from "./components/TaskListComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
@@ -43,6 +43,14 @@ const router = new VueRouter({
             props: true
         }
     ]
+});
+
+router.beforeEach(function(to, from, next) {
+    if (to.path === "/") {
+        next("/login");
+    } else {
+        next();
+    }
 });
 
 Vue.component("header-component", HeaderComponent);

@@ -2362,6 +2362,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__.default({
     props: true
   }]
 });
+router.beforeEach(function (to, from, next) {
+  if (to.path === "/") {
+    next("/login");
+  } else {
+    next();
+  }
+});
 Vue.component("header-component", _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_1__.default);
 var app = new Vue({
   el: "#app",
