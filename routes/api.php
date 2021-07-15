@@ -14,18 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('auth')->group(function () {
-    Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
-    Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
-});
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
+// Route::prefix('auth')->group(function () {
+//     Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
+//     Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
 // });
-// /* ログイン API */
-// Route::post('/login', 'App\Http\Controllers\LoginController@login');
-// /* ログアウト API */
-// Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+/* ログイン API */
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
+/* ログアウト API */
+Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
 
 /* タスク一覧取得API */
 Route::get('/tasks', 'App\Http\Controllers\TaskController@index');
